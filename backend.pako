@@ -1,0 +1,8 @@
+backend /clear
+
+!backend npart resolution[MHZ] bandwidth fshift reciver mode/line
+
+swtotal
+backend wilma /def
+
+backend fts /fine /def ! 50 kHz resolution i.e. 0.15 km/s

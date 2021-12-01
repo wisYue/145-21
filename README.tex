@@ -1,0 +1,188 @@
+Project number: 132-20
+PI name and e-mail: Yue Hu \& Alex Lazarian
+                    yue.hu@wisc.edu \& alazarian@facstaff.wisc.edu 
+
+******************************************
+* 1.- scientific summary of the project: *
+******************************************
+The goal of this project is to map the 12CO (1-0) and 13CO (1-0) line emission in the Serpens south molecular cloud with the IRAM-30m. 
+
+We use the EMIR receivers together with the FTS200 backend. The line is observed in E090 band mode.
+
+We use the OTF PSW observing mode to cover a region of ~ 1100" x 1400". The target sensitivity is 150 mK per 0.25 km s-1 channel, which should be reached in ~16 hours of telescope time, assuming average winter conditions (4.0 mm of PWV).
+
+******************************************
+*    2.- Summary of the observations:    *
+******************************************
+
+! Make the OTF map
+
+! We map a region of 2040" x 2040" with a 8.5" spacing. At the 13CO (1-0)
+! frequency, the telescope EMIR is about 21.3", so we have 3
+! points/beam.  The scan speed is 28"/sec and the data sample is 0.25 s,
+! i.e. one spectra every 7". We observe the reference position for 10
+! s every 1 scan. We make a first sub-map along the RA direction, make a
+! calibration, and then a second sub-map along the Dec direction. 
+
+! We would like to observe 12co(1-0) and 13co(1-0) simultaneously
+
+Source      Observed once ?   Observed twice ? (Mark a X)
+serpens									
+
+
+********************************************************
+* 3.-Step-by-Step Instructions to observe the project: *
+********************************************************
+
+@ ~/PaKo/145-21/setup.pako 
+@ ~/PaKo/145-21/receiver.pako
+@ ~/PaKo/145-21/backend.pako
+
+source mars        !A-PLANET-OR-STRONG-SOURCE
+
+
+calibrate /default
+set dosubmit yes 
+start
+
+
+*** Wait until the operator tune the telecope
+
+
+
+calibrate /default   !Do another calibration to check if the system temperatures are OK 
+start
+
+
+source mars       !A-PLANET-OR-A-STRONG-SOURCE
+@ ~/PaKo/145-21/pointing.pako mars
+      
+set point  YY XX     !Please enter the pointing corrections
+
+@ ~/PaKo/145-21/focus.pako
+
+set focus FF         !Please enter the pointing corrections
+
+
+source mars
+@ ~/PaKo/145-21/pointing.pako mars
+      
+set point  YY XX     !Please enter the pointing corrections
+
+
+
+=====================
+PLEASE CHECK THE REFERENCE POSITION
+
+
+source OFF-1
+@~/PaKo/145-21/checkref.pako
+
+Is clean?? if so please continue with the maps
+
+=======================
+
+
+source w28
+
+@~/PaKo/145-21/backend.pako     !load the backends again 
+
+@~/PaKo/145-21/beta-1.pako        !it last ~ 12 min 
+@~/PaKo/145-21/beta-2.pako   
+@~/PaKo/145-21/beta-3.pako
+@~/PaKo/145-21/beta-4.pako
+@~/PaKo/145-21/beta-5.pako
+@~/PaKo/145-21/beta-6.pako
+@~/PaKo/145-21/beta-7.pako
+@~/PaKo/145-21/beta-8.pako
+@~/PaKo/145-21/beta-9.pako
+@~/PaKo/145-21/beta-10.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako 
+
+@~/PaKo/145-21/beta-11.pako
+@~/PaKo/145-21/beta-12.pako
+@~/PaKo/145-21/beta-13.pako
+@~/PaKo/145-21/beta-14.pako
+@~/PaKo/145-21/beta-15.pako
+@~/PaKo/145-21/beta-16.pako
+@~/PaKo/145-21/beta-17.pako
+@~/PaKo/145-21/beta-18.pako
+@~/PaKo/145-21/beta-19.pako
+@~/PaKo/145-21/beta-20.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako
+
+@~/PaKo/145-21/beta-21.pako
+@~/PaKo/145-21/beta-22.pako
+@~/PaKo/145-21/beta-23.pako
+@~/PaKo/145-21/beta-24.pako
+@~/PaKo/145-21/beta-25.pako
+@~/PaKo/145-21/beta-26.pako
+@~/PaKo/145-21/beta-27.pako
+@~/PaKo/145-21/beta-28.pako
+@~/PaKo/145-21/beta-29.pako
+@~/PaKo/145-21/beta-30.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako
+
+@~/PaKo/145-21/beta-31.pako
+@~/PaKo/145-21/beta-32.pako
+@~/PaKo/145-21/beta-33.pako
+@~/PaKo/145-21/beta-34.pako
+@~/PaKo/145-21/beta-35.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako
+
+@~/PaKo/145-21/lambda-1.pako        !it last ~ 12 min 
+@~/PaKo/145-21/lambda-2.pako   
+@~/PaKo/145-21/lambda-3.pako
+@~/PaKo/145-21/lambda-4.pako
+@~/PaKo/145-21/lambda-5.pako
+@~/PaKo/145-21/lambda-6.pako
+@~/PaKo/145-21/lambda-7.pako
+@~/PaKo/145-21/lambda-8.pako
+@~/PaKo/145-21/lambda-9.pako
+@~/PaKo/145-21/lambda-10.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako
+
+@~/PaKo/145-21/lambda-11.pako
+@~/PaKo/145-21/lambda-12.pako
+@~/PaKo/145-21/lambda-13.pako
+@~/PaKo/145-21/lambda-14.pako
+@~/PaKo/145-21/lambda-15.pako
+@~/PaKo/145-21/lambda-16.pako
+@~/PaKo/145-21/lambda-17.pako
+@~/PaKo/145-21/lambda-18.pako
+@~/PaKo/145-21/lambda-19.pako
+@~/PaKo/145-21/lambda-20.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako
+
+@~/PaKo/145-21/lambda-21.pako
+@~/PaKo/145-21/lambda-22.pako
+@~/PaKo/145-21/lambda-23.pako
+@~/PaKo/145-21/lambda-24.pako
+@~/PaKo/145-21/lambda-25.pako
+@~/PaKo/145-21/lambda-26.pako
+@~/PaKo/145-21/lambda-27.pako
+@~/PaKo/145-21/lambda-28.pako
+@~/PaKo/145-21/lambda-29.pako
+@~/PaKo/145-21/lambda-30.pako
+
+source mars
+@ ~/PaKo/145-21/pointing.pako
+
+@~/PaKo/145-21/lambda-31.pako
+@~/PaKo/145-21/lambda-32.pako
+@~/PaKo/145-21/lambda-33.pako
+@~/PaKo/145-21/lambda-34.pako
+@~/PaKo/145-21/lambda-35.pako
+

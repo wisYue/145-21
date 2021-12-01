@@ -1,0 +1,17 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+sic priority
+sic priority 1 pako
+set project  145-21
+set pi       Yue Hu
+set observer Yue Hu
+set operator pako
+set angleunit arcsec
+set topology low
+set level 3 3
+show
+set dosubmit no
+catalog sou ~/PaKo/145-21/W28.sou
+catalog lin ~/PaKo/145-21/W28-spec.lin
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

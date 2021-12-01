@@ -1,0 +1,63 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! J.Pety & C.Buchbender (2007-2019)
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Procedure #22/34
+!
+! Coverage parameters (lambda scanning):
+!  * General parameters:
+!      - FWHM     [arcsec]: 21.340976424174
+!      - Sampling [arcsec]: 8.5149963390834 (Yes, it is better than FWHM/2)
+!  * Geometry:
+!      - Number of lines: 241
+!      - Line length [arcsec]: 2.2479161833463E+03
+!  * Time distribution:
+!      - Total time  [hrs]: 7.1997222222222
+!      - ON+OFF time [hrs]: 6.6163888888889
+!      - CAL time    [hrs]: 0.58333333333333
+!      - Time between two calibrations [min]: 11.55
+!  * OTF scan parameters:
+!      - Time per ON subscan [s]: 79
+!      - Number of subscans:
+!      - ON parameters:
+!          o Time per phase       [s]: 0.25
+!          o Dump time            [s]: 0.25
+!          o Time to slew line    [s]: 79
+!          o Slew velocity [arcsec/s]: 28.454635232232
+!          o Beam sampling [pts/beam]: 3
+!      - OFF parameters:
+!          o Offsets [arcsec]: 700 -700
+!          o Time per OFF [s]: 10
+!  * CAL scan parameters:
+!      - Time per cal [s]: 60
+!      - Number of cal: 35
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+clear alpha
+limits 500 -500 -500 500
+box
+!
+! Reset backends
+@ ~/PaKo/145-21/backend.pako
+!
+source w28
+!
+set angle arcsec
+off /clear
+!
+swtotal /tphase 0.25
+!
+otfmap 0 0 0 0 /croloop ror -
+               /totf 79 /tref 10 -
+               /ref 700 -700 proj -
+               /syst proj /zigzag yes
+!
+cal /def
+start
+otfmap  -1123.96    229.90   1123.96    229.90 /step    0.00    8.51 /notf 7
+start
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

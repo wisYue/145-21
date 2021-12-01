@@ -1,0 +1,4 @@
+! Set the receivers to observe the 12CO (1-0) and 13CO (1-0) line.
+
+receiver /clear
+receiver E090 COemission 114.50 UO /horizontal LI UI /vertical LI UI
